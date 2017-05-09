@@ -1,0 +1,29 @@
+#welcomeText{
+	text-align: center;
+
+
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+}
+
+#panels{
+	margin-right: 20px;
+}
+
+#zanrovi{
+	padding-left: 20px;
+	color: black;
+	background-color: #f2f3f4;
+}
+#registration{
+	margin-right: 25px;
+}
+#movies{
+	font-weight: bold;
+}
+
