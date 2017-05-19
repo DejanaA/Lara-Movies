@@ -34,7 +34,7 @@ class MoviesController extends Controller
             $movies = Genre::find($genre->id)->movies()->paginate(6);
         }
         $genres= Genre::orderBy('id','DESC')->get();
-        return view("home")->with('genres', $genres)->with('movies', $movies);   
+        return view("movies")->with('genres', $genres)->with('movies', $movies);   
     }
     
     
@@ -43,7 +43,7 @@ class MoviesController extends Controller
 
         $movies = Movies::with('genre')->where('name', $movieName)->first();
         $genres= Genre::orderBy('id','DESC')->get();
-        $comments = Comments::with('user')->where('movie_id', $movies->id)->get();
+        $comments = Comments::with('user')->where('movies_id', $movies->id)->get();
 
 
         return view('movieDetails')->with('genres', $genres)->with('movies', $movies)->with('comments',$comments); 
@@ -55,7 +55,7 @@ class MoviesController extends Controller
         $comm = new Comments();
         $comm->commentText = $request->input('commentText');
         $comm->user_id = Auth::user()->id;
-        $comm->movie_id = $request->input('movie_id');
+        $comm->movies_id = $request->input('movie_id');
         if ($comm->save()) {
             return back();
         }
@@ -70,10 +70,8 @@ class MoviesController extends Controller
         if($like->save()){
             return redirect('/' . $movieName);
         }
-
-
-
     }
+    
      
      
     

@@ -43,7 +43,8 @@
                         </li>
                         <li><a href="#">Najgledanije</a></li>
                         <li><a href="">Poslednje dodato</a></li>
-                        
+
+
 
                       </ul>
                       <form class="navbar-form navbar-left" action="{!!route ("Search") !!}" method="GET">
@@ -53,11 +54,17 @@
                         </div>
                         
                       </form>
+
                       
 
-                      @if (Auth::check())
+                      @if (auth()->check())
+
+                      
+
                       <ul class="nav navbar-nav navbar-right" id="registration">
-                        
+                        @if (auth()->user()->isAdmin())
+                                <li><a href="{!!route ("AddMovie") !!}">Add Movies</a></li>
+                        @endif
 
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span></a>
@@ -71,9 +78,14 @@
                         <ul class="nav navbar-nav navbar-right" id="registration">
                         <li><a href="{!!route ("Registration") !!}">Registration</a></li>
                         <li><a href="{!!route ("Login") !!}">Login</a></li>
-                      
                       </ul>
+                        
                         @endif
+                         
+                        
+
+
+
                       
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->

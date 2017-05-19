@@ -14,7 +14,7 @@ class WelcomeController extends Controller
     	$genres= Genre::orderBy('id','DESC')->get();
     	$movies = Movies::paginate(6);
 
-        return view("home")->with('genres', $genres)->with('movies', $movies);
+        return view("movies")->with('genres', $genres)->with('movies', $movies);
 
     }
 }

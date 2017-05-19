@@ -33,4 +33,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Likes');
         
     }
+    public function roles(){
+        return $this->belongsToMany("App\Role", "users_roles");
+    }
+   public function isAdmin() 
+    {
+       return $this->roles()->where('roleName', 'admin')->first();
+    }
+    
 }

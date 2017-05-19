@@ -3,7 +3,6 @@
 
 	<div class="container">	
 	
-
 	@foreach($movies as $movie)	
 		<div class="panel-group col-md-4">
 			<div class="panel panel-default " style="margin: 15px" >
